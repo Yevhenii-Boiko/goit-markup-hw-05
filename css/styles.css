@@ -100,6 +100,20 @@ a {
   display: inline-block;
 }
 
+/* .list-current-page-item {
+  position: absolute; */
+}
+
+.list-current-page-item::after {
+  /* position: absolute; */
+  width: 78px;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+}
+
 .header .email-link,
 .header .tel-link {
   padding-top: 32px;
@@ -135,6 +149,12 @@ a {
   color: var(--accent-color);
 }
 
+.list-item {
+  transition-property: color; 
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .list-item:hover,
 .list-item:focus {
   color: var(--accent-color);
@@ -153,6 +173,10 @@ a {
   line-height: 1.1;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+
+  transition-property: color; 
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .email-link:hover,
@@ -224,10 +248,62 @@ a {
   letter-spacing: 0.06em;
   border-radius: 4px;
   border: none;
+
+  transition-property: background-color; 
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-container > .btn:hover {
   background: #188ce8;
+}
+
+/* модальне вікно */
+
+.modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+  background-color: var(--primary-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.backdrope.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrope {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visbility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* переваги */
@@ -328,7 +404,35 @@ a {
 }
 
 .activity-item {
+  position: relative;
   flex-basis: calc((100% - 60px) / 3);
+}
+
+/* .activity-thumb {
+  position: relative;
+} */
+
+.activity-label {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 70px;
+  
+  padding-top: 27px;
+  padding-bottom: 27px;
+  margin: 0;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  background-color: rgba(47, 48, 58, 0.8);
+  color: var(--secondary-text-color);
 }
 
 /* наша команда */
@@ -420,6 +524,10 @@ a {
   fill: #AFB1B8;
   background-color: var(--primary-bg-color);
   border-radius: 50%;
+
+  transition-property: fill, background-color; 
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-item {
@@ -469,6 +577,10 @@ a {
   height: 100%;
   border: 1px solid #AFB1B8;
   border-radius: 4px;
+
+  transition-property: fill, border; 
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-item-logo:hover,
@@ -520,12 +632,53 @@ a {
 
 .card-link {
   display: block;
+
+  transition-property: box-shadow; 
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-link:hover,
 .card-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
   0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+
+  transform: ;
+}
+
+.project-card:hover .card-description, 
+.project-card:focus .card-description{
+  transform: translatey(0);
+}
+
+.project-card-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 63px 24px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  text-align-last: left;
+
+  color: var(--secondary-text-color);
+  background-color:  rgba(33, 150, 243, 0.9);
+
+
+  transform: translatey(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
 }
 
 .project-description {
@@ -553,6 +706,10 @@ a {
   padding: 6px 22px;
   border: none;
   border-radius: 4px;
+
+  transition-property: color, background-color, box-shadow; 
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filters-list .btn:hover,
@@ -643,6 +800,10 @@ address {
   background-color: rgba(255, 255, 255, 0.1);
   fill: var(--secondary-text-color);
   border-radius: 50%;
+
+  transition-property: background-color; 
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .socials-link:hover,

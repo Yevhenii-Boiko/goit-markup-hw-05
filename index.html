@@ -69,7 +69,16 @@
     <section class="hero-section">
       <div class="hero-container">
         <h1 class="slogan">Ефективні рішення для <br> вашого бізнесу</h1>
-        <button class="btn" type="button">Замовити послугу</button>
+        <button class="btn" type="button" data-modal-open>Замовити послугу</button>
+        <div class="backdrope is-hidden" data-modal>
+          <div class="modal">
+            <button data-modal-close class="modal-btn">
+              <svg width="30" height="30">
+                <use href="./images/icons.svg#close"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -135,15 +144,24 @@
         <h2>Чим ми займаємось</h2>
         <ul class="activity-list">
           <li class="activity-item">
-            <img class="img" src="./images/about/box-1.jpeg" alt="Здійснення розмітки вебсторінок на компʼютері"
+            <!-- <div class="activity-thumb"> -->
+              <img class="img" src="./images/about/box-1.jpeg" alt="Здійснення розмітки вебсторінок на компʼютері"
               width="370" height="294" />
+              <p class="activity-label">Десктопні додатки</p>
+            <!-- </div> -->
           </li>
           <li class="activity-item">
-            <img class="img" src="./images/about/box-2.jpeg" alt="Адаптація вебсторінок під різні пристрої" width="370"
+            <!-- <div> -->
+              <img class="img" src="./images/about/box-2.jpeg" alt="Адаптація вебсторінок під різні пристрої" width="370"
               height="294" />
+              <p class="activity-label">Мобільні додатки</p>
+            <!-- </div> -->
           </li>
           <li class="activity-item">
-            <img class="img" src="./images/about/box-3.jpeg" alt="Стилізація вебсторінок" width="370" height="294" />
+            <!-- <div> -->
+              <img class="img" src="./images/about/box-3.jpeg" alt="Стилізація вебсторінок" width="370" height="294" />
+              <p class="activity-label">Дизайнерські рішення</p>
+            <!-- </div> -->
           </li>
         </ul>
       </div>
@@ -542,6 +560,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="./js/modal.js"></script>
 </body>
 
 </html>
